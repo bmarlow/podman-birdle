@@ -6,4 +6,4 @@ ADD . /usr/share/nginx/html/
 
 EXPOSE 80
 #CMD "/usr/sbin/httpd" "-D" "FOREGROUND"
-CMD ["nginx" "-g" "daemon off;"]
+CMD "nginx" "-g" "daemon off;"
