@@ -3,6 +3,7 @@ FROM docker.io/library/fedora:latest
 
 RUN dnf -y install nginx
 ADD . /usr/share/nginx/html/
+RUN chmod -R 777 /var/log/nginx/
 
 EXPOSE 80
 #CMD "/usr/sbin/httpd" "-D" "FOREGROUND"
