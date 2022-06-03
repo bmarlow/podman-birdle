@@ -5,6 +5,6 @@ RUN dnf -y install nginx
 ADD . /usr/share/nginx/html/
 RUN chmod -R 777 /var/log/nginx/
 
-EXPOSE 80
+EXPOSE 8080
 #CMD "/usr/sbin/httpd" "-D" "FOREGROUND"
 CMD "nginx" "-g" "daemon off;"
