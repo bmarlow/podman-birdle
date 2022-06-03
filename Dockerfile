@@ -1,8 +1,9 @@
 FROM docker.io/library/fedora:latest
 
 
-RUN dnf -y install httpd
-ADD . /var/www/html/
+RUN dnf -y install nginx
+ADD . /usr/share/nginx/html/
 
-EXPOSE 8080
-CMD "/usr/sbin/httpd" "-D" "FOREGROUND"
+EXPOSE 80
+#CMD "/usr/sbin/httpd" "-D" "FOREGROUND"
+CMD ["nginx" "-g" "daemon off;"]
