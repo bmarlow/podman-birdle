@@ -16,6 +16,6 @@ RUN chmod -R g=u /var/log
 
 USER 1001
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD run-httpd 
