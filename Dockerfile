@@ -13,6 +13,9 @@ USER 1001
 RUN chgrp -R 0 /opt/app-root
 RUN chmod -R g=u /opt/app-root
 
+RUN chgrp -R 0 /var/log
+RUN chmod -R g=u /var/log
+
 EXPOSE 80
 
 CMD run-httpd 
