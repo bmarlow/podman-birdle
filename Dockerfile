@@ -1,11 +1,15 @@
-FROM docker.io/library/fedora:latest
+FROM registry.redhat.io/ubi9/httpd-24
 
+USER 0
 
-RUN dnf -y install nginx
-ADD . /usr/share/nginx/html/
-RUN chmod -R 777 /var/log/nginx/
-RUN sed -i 's/80;/8080;/g' /etc/nginx/nginx.conf
-EXPOSE 8080
-#CMD "/usr/sbin/httpd" "-D" "FOREGROUND"
-#CMD "/bin/sh" "-c" "sed -i 's/listen  .*/listen 8080;/g' /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
-CMD "nginx" "-g" "daemon off;"
+RUN dnf -y update
+
+RUN dnf clean all
+
+ADD . /var/www/html/
+
+USER 1001
+
+EXPOSE 80
+
+CMD run-httpd 
